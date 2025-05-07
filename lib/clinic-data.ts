@@ -1,0 +1,68 @@
+import type { Clinic } from "@/lib/types"
+
+export const clinicData: Clinic[] = [
+  {
+    name: "Theism Dental",
+    availability: "Mon (4pm to 8pm); Wed (4pm to 8pm)",
+    address: "Theism Dental, Dumdum cantonment, Kolkata",
+    gpsLabel: "Dumdum cantonment",
+    gpsLink: "https://maps.app.goo.gl/SwwLdgSDWXgAwPR66",
+    phoneNumbers: ["+91 7980916972", "+91 98303 91104"],
+  },
+  {
+    name: "AestheticQ Dental Clinic (Kasba)",
+    availability: "Mon (12:30pm to 2pm); Wed (12:30pm to 2pm); Thu (12:30pm to 3:30pm); Fri (6pm)",
+    address: "AestheticQ Dental Clinic, Kasba, Kolkata",
+    gpsLabel: "Kasba",
+    gpsLink: "https://maps.app.goo.gl/oWAHLV74z1e6CFcS8",
+    phoneNumbers: ["+91 76030 39305"],
+  },
+  {
+    name: "Apollo Clinic (Mukundapur)",
+    availability: "Tue (12:30pm to 5pm); Fri (12:30pm to 3pm)",
+    address: "Apollo Clinic, Mukundapur, Kolkata",
+    gpsLabel: "Mukundapur",
+    gpsLink: "https://maps.app.goo.gl/dTJAwUq5RhajYhqv6",
+    phoneNumbers: ["+91 62923 08293"],
+  },
+  {
+    name: "Cosmi Dental",
+    availability: "Tue (6pm to 8pm); Sat (6pm to 8pm)",
+    address: "Cosmi Dental, Mukundapur, Kolkata",
+    gpsLabel: "Mukundapur",
+    gpsLink: "https://maps.app.goo.gl/NHgQZqkEWf3dijGV8",
+    phoneNumbers: ["+91 85840 89585"],
+  },
+  {
+    name: "Apollo Clinic (Beleghata)",
+    availability: "Thu (4pm to 7pm)",
+    address: "Apollo Clinic, Beleghata, Kolkata",
+    gpsLabel: "Beleghata",
+    gpsLink: "https://maps.app.goo.gl/JbMw9k5X2Tkw2bETA",
+    phoneNumbers: ["+91 99035 47251"],
+  },
+  {
+    name: "Neotia Mediplus",
+    availability: "Fri (4pm to 6pm)",
+    address: "Neotia Mediplus, Rawdon Street, Kolkata",
+    gpsLabel: "Rawdon Street",
+    gpsLink: "https://maps.app.goo.gl/hCvyJ6MQZY5JFdh2A",
+    phoneNumbers: ["+91 33 6657 5023"],
+  },
+  {
+    name: "Dental Excellency",
+    availability: "Sat (12pm to 4pm)",
+    address: "Dental Excellency, New Town, Kolkata",
+    gpsLabel: "New Town",
+    gpsLink: "https://maps.app.goo.gl/BtCQqsEUb7X2opnD7",
+    phoneNumbers: ["+91 94383 17876"],
+  },
+  {
+    name: "AestheticQ Dental Clinic (New Town)",
+    availability: "Sat (4pm)",
+    address: "AestheticQ Dental Clinic, New Town, Kolkata",
+    gpsLabel: "New Town",
+    gpsLink: "https://maps.app.goo.gl/D5Yot59uJuv7J1vE9",
+    phoneNumbers: ["+91 76030 39305"],
+  },
+]
