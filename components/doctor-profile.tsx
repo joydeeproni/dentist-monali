@@ -21,9 +21,6 @@ export function DoctorProfile() {
         />
       </div>
       <CardContent className="p-6">
-        <h3 className="text-2xl font-bold mb-1">Dr. Monali Sengupta</h3>
-        <p className="text-gray-500 mb-4">MDS, Pediatric Dental Surgeon</p>
-
         <div className="space-y-4">
           <p>
             Dr. Monali Sengupta is a pediatric dental surgeon practising in Kolkata since 2014. She specializes in child

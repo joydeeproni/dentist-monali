@@ -16,21 +16,31 @@ export default function Home() {
           <p className="text-lg font-medium text-black">Pediatric Dental Surgeon</p>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          <div className="lg:col-span-1 space-y-8">
-            <Suspense fallback={<div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>}>
-              <DoctorProfile />
-            </Suspense>
-
-            <Suspense fallback={<div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>}>
-              <GoogleReviews />
-            </Suspense>
-          </div>
-          <div className="lg:col-span-2">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 mb-12">
+          {/* Left Column - Find a Clinic Near You */}
+          <div className="lg:col-span-2 order-2 lg:order-1">
             <h2 className="text-2xl font-semibold text-black mb-6">Find a Clinic Near You</h2>
             <Suspense fallback={<div className="h-96 bg-gray-200 animate-pulse rounded-lg"></div>}>
               <ClinicLocations />
             </Suspense>
+          </div>
+
+          {/* Right Column - About Dr. Monali and Google Reviews */}
+          <div className="lg:col-span-1 flex flex-col gap-8 order-1 lg:order-2">
+            {/* About Dr. Monali */}
+            <div>
+              <h2 className="text-2xl font-semibold text-black mb-6">About Dr. Monali</h2>
+              <Suspense fallback={<div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>}>
+                <DoctorProfile />
+              </Suspense>
+            </div>
+
+            {/* Google Reviews */}
+            <div className="order-3">
+              <Suspense fallback={<div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>}>
+                <GoogleReviews />
+              </Suspense>
+            </div>
           </div>
         </div>
       </div>

@@ -17,6 +17,9 @@ export function ClinicCard({ clinic }: ClinicCardProps) {
   const { status, statusColor } = checkAvailability(clinic.availability)
   const { hasAppointmentToday, appointmentInfo, isUpcoming } = getNextAppointment(clinic.availability)
 
+  // Use the clinic's first phone number if available, otherwise use the default booking number
+  const callNumber = clinic.phoneNumbers && clinic.phoneNumbers.length > 0 ? clinic.phoneNumbers[0] : "+919337412510"
+
   return (
     <Card className="overflow-hidden transition-all duration-200 hover:shadow-md">
       <CardContent className="p-6">
@@ -76,7 +79,7 @@ export function ClinicCard({ clinic }: ClinicCardProps) {
       <CardFooter className="px-6 py-4 bg-gray-50 flex flex-col sm:flex-row gap-3">
         <Button
           className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white"
-          onClick={() => (window.location.href = "tel:+919337412510")}
+          onClick={() => (window.location.href = `tel:${callNumber.replace(/\s+/g, "")}`)}
         >
           <Phone className="h-4 w-4 mr-2" /> Call Now
         </Button>
