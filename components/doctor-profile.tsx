@@ -11,10 +11,10 @@ export function DoctorProfile() {
 
   return (
     <Card className="overflow-hidden">
-      <div className="relative w-full h-48 bg-yellow-400">
+      <div className="relative w-full h-56 md:h-64">
         <Image
-          src="/images/doctor-banner.png"
-          alt="Dr. Monali treating a child patient"
+          src="/images/about-banner.png"
+          alt="Dr. Monali Sengupta - Gold Medalist with 12 years experience"
           fill
           className="object-cover"
           priority
