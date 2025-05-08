@@ -63,7 +63,7 @@ export function DoctorProfile() {
           </Button>
 
           <Button
-            className="w-full mt-4 bg-[#4db19a] hover:bg-[#3a9b85] flex items-center justify-center gap-2"
+            className="w-full mt-4 bg-black hover:bg-gray-800 flex items-center justify-center gap-2 text-white"
             size="lg"
             onClick={() => (window.location.href = "tel:+919337412510")}
           >

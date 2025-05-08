@@ -74,13 +74,25 @@ export function ClinicCard({ clinic }: ClinicCardProps) {
       </CardContent>
 
       <CardFooter className="px-6 py-4 bg-gray-50 flex flex-col sm:flex-row gap-3">
-        <Button className="w-full sm:w-auto" onClick={() => (window.location.href = "tel:+919337412510")}>
+        <Button
+          className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white"
+          onClick={() => (window.location.href = "tel:+919337412510")}
+        >
           <Phone className="h-4 w-4 mr-2" /> Call Now
         </Button>
-        <Button variant="outline" className="w-full sm:w-auto" onClick={() => window.open(clinic.gpsLink, "_blank")}>
+        <Button
+          variant="outline"
+          className="w-full sm:w-auto border-black text-black hover:bg-gray-100"
+          onClick={() => window.open(clinic.gpsLink, "_blank")}
+        >
           <MapPin className="h-4 w-4 mr-2" /> View on Maps
         </Button>
-        <Button variant="ghost" size="sm" className="ml-auto text-black" onClick={() => setExpanded(!expanded)}>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="ml-auto text-black hover:bg-gray-100"
+          onClick={() => setExpanded(!expanded)}
+        >
           {expanded ? (
             <>
               <ChevronUp className="h-4 w-4 mr-1" /> Less
