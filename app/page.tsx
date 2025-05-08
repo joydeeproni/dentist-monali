@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { ClinicLocations } from "@/components/clinic-locations"
 import { DoctorProfile } from "@/components/doctor-profile"
+import { GoogleReviews } from "@/components/google-reviews"
 
 export default function Home() {
   return (
@@ -16,9 +17,13 @@ export default function Home() {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 space-y-8">
             <Suspense fallback={<div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>}>
               <DoctorProfile />
+            </Suspense>
+
+            <Suspense fallback={<div className="h-64 bg-gray-200 animate-pulse rounded-lg"></div>}>
+              <GoogleReviews />
             </Suspense>
           </div>
           <div className="lg:col-span-2">
