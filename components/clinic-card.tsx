@@ -27,7 +27,7 @@ export function ClinicCard({ clinic }: ClinicCardProps) {
           <h3 className="text-lg font-semibold">{clinic.name}</h3>
           <Badge
             variant={statusColor === "green" ? "default" : "secondary"}
-            className="ml-2 whitespace-nowrap text-black"
+            className={`ml-2 whitespace-nowrap ${statusColor === "green" ? "text-white" : "text-black"}`}
           >
             {status}
           </Badge>
