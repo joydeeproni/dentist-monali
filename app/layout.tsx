@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: "Find appointments near you in Kolkata",
     images: ["/og-image.png"],
   },
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
