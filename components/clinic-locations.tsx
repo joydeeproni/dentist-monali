@@ -2,14 +2,18 @@
 
 import { useState } from "react"
 import { ClinicCard } from "@/components/clinic-card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { clinicData } from "@/lib/clinic-data"
 
-// Group clinics by area
 const areas = {
   north: ["Dumdum cantonment", "New Town"],
   south: ["Kasba", "Mukundapur", "Beleghata", "Rawdon Street"],
 }
+
+const tabs = [
+  { value: "all", label: "All" },
+  { value: "north", label: "North/Central" },
+  { value: "south", label: "South" },
+]
 
 export function ClinicLocations() {
   const [selectedArea, setSelectedArea] = useState("all")
@@ -19,10 +23,8 @@ export function ClinicLocations() {
 
     return clinicData.filter((clinic) => {
       const location = clinic.gpsLabel
-
       if (area === "north") return areas.north.some((a) => location.includes(a))
       if (area === "south") return areas.south.some((a) => location.includes(a))
-
       return false
     })
   }
@@ -31,21 +33,29 @@ export function ClinicLocations() {
 
   return (
     <div>
-      <Tabs defaultValue="all" onValueChange={setSelectedArea}>
-        <TabsList className="mb-6 w-full grid grid-cols-3">
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="north">North/Central</TabsTrigger>
-          <TabsTrigger value="south">South</TabsTrigger>
-        </TabsList>
+      {/* Tabs */}
+      <div className="flex items-center gap-2 mb-6">
+        {tabs.map((tab) => (
+          <button
+            key={tab.value}
+            onClick={() => setSelectedArea(tab.value)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              selectedArea === tab.value
+                ? "bg-foreground text-background"
+                : "bg-muted text-muted-foreground hover:bg-border"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-        <TabsContent value={selectedArea} className="mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredClinics.map((clinic, index) => (
-              <ClinicCard key={index} clinic={clinic} />
-            ))}
-          </div>
-        </TabsContent>
-      </Tabs>
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {filteredClinics.map((clinic, index) => (
+          <ClinicCard key={index} clinic={clinic} />
+        ))}
+      </div>
     </div>
   )
 }

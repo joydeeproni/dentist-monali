@@ -2,10 +2,7 @@
 
 import { useState } from "react"
 import { Star, ExternalLink, ThumbsUp, ChevronDown, ChevronUp } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
-// Real reviews from Google
 const reviews = [
   {
     id: 1,
@@ -44,73 +41,76 @@ export function GoogleReviews() {
   const displayedReviews = showAllReviews ? reviews : reviews.slice(0, 2)
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-xl font-bold">Google Reviews</CardTitle>
-          <div className="flex items-center">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+    <div>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-bold text-foreground">Google Reviews</h2>
+        <div className="flex items-center gap-1.5">
+          <div className="flex">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-4 w-4 fill-[#FACC15] text-[#FACC15]" />
+            ))}
+          </div>
+          <span className="text-sm font-medium text-foreground">5.0</span>
+          <span className="text-sm text-muted-foreground">(5 reviews)</span>
+        </div>
+      </div>
+
+      {/* Review Cards */}
+      <div className="space-y-4">
+        {displayedReviews.map((review) => (
+          <div key={review.id} className="bg-card border border-border rounded-lg p-5">
+            <div className="flex justify-between items-center mb-2">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
+                  <span className="text-sm font-semibold text-foreground">{review.author[0]}</span>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-foreground">{review.author}</h4>
+                  <span className="text-xs text-muted-foreground">{review.reviewCount}</span>
+                </div>
+              </div>
+              <span className="text-xs text-muted-foreground">{review.date}</span>
+            </div>
+            <div className="flex mb-2">
+              {[...Array(review.rating)].map((_, i) => (
+                <Star key={i} className="h-3 w-3 fill-[#FACC15] text-[#FACC15]" />
               ))}
             </div>
-            <span className="ml-2 text-sm font-medium">5.0 (5 reviews)</span>
-          </div>
-        </div>
-      </CardHeader>
-
-      <CardContent className="px-6 pb-2">
-        <div className="space-y-4">
-          {displayedReviews.map((review) => (
-            <div key={review.id} className="border-b pb-4 last:border-0">
-              <div className="flex justify-between items-center mb-1">
-                <div className="flex items-center">
-                  <h4 className="font-medium">{review.author}</h4>
-                  <span className="text-xs text-gray-500 ml-2">({review.reviewCount})</span>
-                </div>
-                <span className="text-xs text-gray-500">{review.date}</span>
-              </div>
-              <div className="flex mb-2">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="text-sm text-gray-700">{review.content}</p>
-              <div className="flex items-center mt-2 text-xs text-gray-500">
-                <ThumbsUp className="h-3 w-3 mr-1" /> {review.helpful}
-              </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">{review.content}</p>
+            <div className="flex items-center mt-3 text-xs text-muted-foreground">
+              <ThumbsUp className="h-3 w-3 mr-1" /> {review.helpful}
             </div>
-          ))}
-        </div>
-      </CardContent>
+          </div>
+        ))}
+      </div>
 
-      <CardFooter className="flex flex-col gap-3 px-6 py-4">
+      {/* Show More / Less */}
+      <div className="flex flex-col gap-3 mt-6">
         {reviews.length > 2 && (
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-full text-black hover:bg-gray-100"
+          <button
+            className="flex items-center justify-center gap-1 w-full py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
             onClick={() => setShowAllReviews(!showAllReviews)}
           >
             {showAllReviews ? (
               <>
-                <ChevronUp className="h-4 w-4 mr-1" /> Show Less
+                <ChevronUp className="h-4 w-4" /> Show Less
               </>
             ) : (
               <>
-                <ChevronDown className="h-4 w-4 mr-1" /> Show More
+                <ChevronDown className="h-4 w-4" /> Show More Reviews
               </>
             )}
-          </Button>
+          </button>
         )}
 
-        <Button
-          className="w-full bg-black hover:bg-gray-800 text-white"
+        <button
+          className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
           onClick={() => window.open("https://g.co/kgs/XexjHqw", "_blank")}
         >
-          <ExternalLink className="h-4 w-4 mr-2" /> View & Leave Reviews on Google
-        </Button>
-      </CardFooter>
-    </Card>
+          <ExternalLink className="h-4 w-4" /> View & Leave Reviews on Google
+        </button>
+      </div>
+    </div>
   )
 }
