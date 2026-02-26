@@ -6,33 +6,36 @@ import { Star, ExternalLink, ThumbsUp, ChevronDown, ChevronUp } from "lucide-rea
 const reviews = [
   {
     id: 1,
-    author: "Archi Dam",
+    author: "Sulagna Ghosh",
     rating: 5,
-    date: "a year ago",
+    date: "5 months ago",
     content:
-      "Dr. Monali is an excellent dentist for children. She takes immense care of her patients, considering kids can be difficult at times to be treated. She understands them and interact with them patiently, giving ample amount of time for treatment. Definitely recommended!",
-    helpful: 1,
-    reviewCount: "1 review",
+      "Dr. Monali is an outstanding doctor! The entire experience was fantastic. Dr. Monali was incredibly knowledgeable and took the time to explain everything clearly. I\u2019m so grateful for the excellent care my son had received! Great doctor!",
+    helpful: 0,
+    reviewCount: "2 reviews",
+    images: [] as string[],
   },
   {
     id: 2,
-    author: "Nupur Nayak Sardar",
+    author: "Adrija Roy",
     rating: 5,
-    date: "4 months ago",
+    date: "9 months ago",
     content:
-      "Dr. Monali is an outstanding pediatric dentist who truly understands how to handle children during their treatment. She shows exceptional care and patience, recognizing the unique challenges that come with treating young patients. With her expertise, children feel comfortable and at ease during dental procedures.",
-    helpful: 2,
-    reviewCount: "2 reviews",
+      "Dr. Monali Sengupta made my 3-year-old daughter\u2019s first dental visit incredibly smooth and stress-free. She\u2019s truly a specialist\u2014professional, patient, and always ready to help. Her positive approach, smiling nature, and reassuring presence made my child feel completely at ease. She\u2019s extremely skilled and knowledgable. I highly recommend Dr. Monali for paediatric dental care!! She\u2019s the only dentist I trust for my little one.",
+    helpful: 1,
+    reviewCount: "3 reviews",
+    images: ["/images/reviews/adrija-before-after.png"],
   },
   {
     id: 3,
-    author: "Ankur Agrawal",
+    author: "Sohail Aslam",
     rating: 5,
-    date: "a month ago",
+    date: "9 months ago",
     content:
-      "Dr. Monali is a very good doctor. We have been taking her consultation since last 5 years for my son and its always helpful. Procedures are also very smooth as she engages well with kids. Special Thanks!",
-    helpful: 3,
-    reviewCount: "8 reviews",
+      "Best pediatric dentist in Kolkata. Dr Monali is awesome with her work. My daughter love to visit her. It\u2019s been years I\u2019m showing my daughter from her. Dr Monali takes really good care of patients. I must say if ur child having dental issues then u must visit her once",
+    helpful: 1,
+    reviewCount: "20 reviews",
+    images: [] as string[],
   },
 ]
 
@@ -52,7 +55,7 @@ export function GoogleReviews() {
             ))}
           </div>
           <span className="text-sm font-medium text-foreground">5.0</span>
-          <span className="text-sm text-muted-foreground">(5 reviews)</span>
+          <span className="text-sm text-muted-foreground">(3 reviews)</span>
         </div>
       </div>
 
@@ -78,6 +81,18 @@ export function GoogleReviews() {
               ))}
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">{review.content}</p>
+            {review.images && review.images.length > 0 && (
+              <div className="flex gap-2 mt-3">
+                {review.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt={`Photo shared by ${review.author}`}
+                    className="rounded-md object-cover max-h-32 w-auto border border-border"
+                  />
+                ))}
+              </div>
+            )}
             <div className="flex items-center mt-3 text-xs text-muted-foreground">
               <ThumbsUp className="h-3 w-3 mr-1" /> {review.helpful}
             </div>
