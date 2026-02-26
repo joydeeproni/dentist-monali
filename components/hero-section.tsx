@@ -76,7 +76,7 @@ export function HeroSection() {
 
             {/* Name and description */}
             <div>
-              <h1 className="text-3xl md:text-5xl font-bold text-[#ffffff] tracking-tight text-balance">
+              <h1 className="text-3xl md:text-5xl font-normal text-[#ffffff] tracking-tight text-balance">
                 Dr. Monali Sengupta
               </h1>
               <div className="mt-3 flex flex-wrap items-baseline gap-1">
