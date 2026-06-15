@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ClinicCard } from "@/components/clinic-card"
-import { clinicData } from "@/lib/clinic-data"
+import type { Clinic } from "@/lib/types"
 
 const areas = {
   north: ["Dumdum cantonment", "New Town"],
@@ -15,13 +15,17 @@ const tabs = [
   { value: "south", label: "South" },
 ]
 
-export function ClinicLocations() {
+interface ClinicLocationsProps {
+  clinics: Clinic[]
+}
+
+export function ClinicLocations({ clinics }: ClinicLocationsProps) {
   const [selectedArea, setSelectedArea] = useState("all")
 
   const filterClinicsByArea = (area: string) => {
-    if (area === "all") return clinicData
+    if (area === "all") return clinics
 
-    return clinicData.filter((clinic) => {
+    return clinics.filter((clinic) => {
       const location = clinic.gpsLabel
       if (area === "north") return areas.north.some((a) => location.includes(a))
       if (area === "south") return areas.south.some((a) => location.includes(a))
@@ -33,7 +37,6 @@ export function ClinicLocations() {
 
   return (
     <div>
-      {/* Tabs */}
       <div className="flex items-center gap-2 mb-6">
         {tabs.map((tab) => (
           <button
@@ -50,7 +53,6 @@ export function ClinicLocations() {
         ))}
       </div>
 
-      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {filteredClinics.map((clinic, index) => (
           <ClinicCard key={index} clinic={clinic} />

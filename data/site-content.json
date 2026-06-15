@@ -1,0 +1,153 @@
+{
+  "doctor": {
+    "name": "Dr. Monali Sengupta",
+    "title": "Pediatric Dental Surgeon",
+    "shortDescription": "Pediatric dental surgeon practising in Kolkata since 2014.",
+    "longDescription": [
+      "She specializes in child dentistry, having completed her MDS from KIIT University and is a gold medalist in both BDS and MDS.",
+      "As a pediatric dental surgeon, she caters to the oral healthcare needs of child patients who require extra care, behaviour management, and minimally invasive treatment approaches."
+    ],
+    "profileImage": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/monali-dp-orange-5siXAhfLYhBm90dspydkgalQMcLkw3.png",
+    "coverImage": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dentistmonali-cover-uQrtVgtO1qlTED27455ZFRg0PPWmKf.png",
+    "bookingPhone": "+919337412510",
+    "googleReviewsLink": "https://g.co/kgs/XexjHqw"
+  },
+  "badges": [
+    {
+      "icon": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/years%20of%20experience-uDBwt9WblkMdpsWTEAoQb0RWkJZ2SW.png",
+      "value": "10+ years of",
+      "label": "experience"
+    },
+    {
+      "icon": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/medal-3LwhWF9FljuwYiaXdGeIRVwaUNYcFb.png",
+      "value": "BDS Gold",
+      "label": "Medalist"
+    },
+    {
+      "icon": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/star-4uf4YwsvDdZERjEk4pshZ5Tbf9ecAf.png",
+      "value": "4.8",
+      "label": "Google Ratings"
+    }
+  ],
+  "clinics": [
+    {
+      "name": "Theism Dental",
+      "availability": "Mon (4pm to 8pm); Wed (4pm to 8pm)",
+      "address": "Theism Dental, Dumdum cantonment, Kolkata",
+      "gpsLabel": "Dumdum cantonment",
+      "gpsLink": "https://maps.app.goo.gl/SwwLdgSDWXgAwPR66",
+      "phoneNumbers": ["+91 7980916972", "+91 98303 91104"],
+      "region": "north",
+      "active": true
+    },
+    {
+      "name": "AestheticQ Dental Clinic (Kasba)",
+      "availability": "Mon (12:30pm to 2pm); Wed (12:30pm to 2pm); Thu (12:30pm to 3:30pm); Fri (6pm)",
+      "address": "AestheticQ Dental Clinic, Kasba, Kolkata",
+      "gpsLabel": "Kasba",
+      "gpsLink": "https://maps.app.goo.gl/oWAHLV74z1e6CFcS8",
+      "phoneNumbers": ["+91 76030 39305"],
+      "region": "south",
+      "active": true
+    },
+    {
+      "name": "Apollo Clinic (Mukundapur)",
+      "availability": "Tue (12:30pm to 5pm); Fri (12:30pm to 3pm)",
+      "address": "Apollo Clinic, Mukundapur, Kolkata",
+      "gpsLabel": "Mukundapur",
+      "gpsLink": "https://maps.app.goo.gl/dTJAwUq5RhajYhqv6",
+      "phoneNumbers": ["+91 62923 08293"],
+      "region": "south",
+      "active": true
+    },
+    {
+      "name": "Cosmi Dental",
+      "availability": "Tue (6pm to 8pm); Sat (6pm to 8pm)",
+      "address": "Cosmi Dental, Mukundapur, Kolkata",
+      "gpsLabel": "Mukundapur",
+      "gpsLink": "https://maps.app.goo.gl/NHgQZqkEWf3dijGV8",
+      "phoneNumbers": ["+91 85840 89585"],
+      "region": "south",
+      "active": true
+    },
+    {
+      "name": "Apollo Clinic (Beleghata)",
+      "availability": "Thu (4pm to 7pm)",
+      "address": "Apollo Clinic, Beleghata, Kolkata",
+      "gpsLabel": "Beleghata",
+      "gpsLink": "https://maps.app.goo.gl/JbMw9k5X2Tkw2bETA",
+      "phoneNumbers": ["+91 99035 47251"],
+      "region": "south",
+      "active": true
+    },
+    {
+      "name": "Neotia Mediplus",
+      "availability": "Fri (4pm to 6pm)",
+      "address": "Neotia Mediplus, Rawdon Street, Kolkata",
+      "gpsLabel": "Rawdon Street",
+      "gpsLink": "https://maps.app.goo.gl/hCvyJ6MQZY5JFdh2A",
+      "phoneNumbers": ["+91 33 6657 5023"],
+      "region": "south",
+      "active": true
+    },
+    {
+      "name": "Dental Excellency",
+      "availability": "Sat (12pm to 4pm)",
+      "address": "Dental Excellency, New Town, Kolkata",
+      "gpsLabel": "New Town",
+      "gpsLink": "https://maps.app.goo.gl/BtCQqsEUb7X2opnD7",
+      "phoneNumbers": ["+91 94383 17876"],
+      "region": "north",
+      "active": true
+    },
+    {
+      "name": "AestheticQ Dental Clinic (New Town)",
+      "availability": "Sat (4pm)",
+      "address": "AestheticQ Dental Clinic, New Town, Kolkata",
+      "gpsLabel": "New Town",
+      "gpsLink": "https://maps.app.goo.gl/D5Yot59uJuv7J1vE9",
+      "phoneNumbers": ["+91 76030 39305"],
+      "region": "north",
+      "active": true
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "author": "Archi Dam",
+      "rating": 5,
+      "date": "a year ago",
+      "content": "Dr. Monali is an excellent dentist for children. She takes immense care of her patients, considering kids can be difficult at times to be treated. She understands them and interact with them patiently, giving ample amount of time for treatment. Definitely recommended!",
+      "helpful": 1,
+      "reviewCount": "1 review",
+      "visible": true
+    },
+    {
+      "id": 2,
+      "author": "Nupur Nayak Sardar",
+      "rating": 5,
+      "date": "4 months ago",
+      "content": "Dr. Monali is an outstanding pediatric dentist who truly understands how to handle children during their treatment. She shows exceptional care and patience, recognizing the unique challenges that come with treating young patients. With her expertise, children feel comfortable and at ease during dental procedures.",
+      "helpful": 2,
+      "reviewCount": "2 reviews",
+      "visible": true
+    },
+    {
+      "id": 3,
+      "author": "Ankur Agrawal",
+      "rating": 5,
+      "date": "a month ago",
+      "content": "Dr. Monali is a very good doctor. We have been taking her consultation since last 5 years for my son and its always helpful. Procedures are also very smooth as she engages well with kids. Special Thanks!",
+      "helpful": 3,
+      "reviewCount": "8 reviews",
+      "visible": true
+    }
+  ],
+  "seo": {
+    "pageTitle": "Dr. Monali Sengupta - Pediatric Dental Surgeon",
+    "metaDescription": "Find and contact Dr. Monali Sengupta's dental clinics across Kolkata for pediatric dental care",
+    "ogImageUrl": "/og-image.png",
+    "contactEmail": "",
+    "contactPhone": "+919337412510"
+  }
+}
