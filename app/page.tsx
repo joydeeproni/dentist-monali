@@ -8,7 +8,7 @@ import { getContent } from "@/lib/content"
 export const dynamic = "force-dynamic"
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = getContent()
+  const content = await getContent()
   return {
     title: content.seo.pageTitle,
     description: content.seo.metaDescription,
@@ -29,8 +29,8 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function Home() {
-  const content = getContent()
+export default async function Home() {
+  const content = await getContent()
   const activeClinics = content.clinics.filter((c) => c.active)
   const visibleReviews = content.reviews.filter((r) => r.visible)
 
