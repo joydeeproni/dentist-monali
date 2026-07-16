@@ -72,12 +72,17 @@ export default function AdminDashboard() {
         body: JSON.stringify(content),
       })
       if (res.status === 401) { router.push("/admin/login"); return }
-      if (!res.ok) throw new Error()
+      if (!res.ok) {
+        const body = await res.json().catch(() => null)
+        throw new Error(body?.error || `Save failed (HTTP ${res.status})`)
+      }
       setSavedContent(structuredClone(content))
       setLastSaved(new Date())
       toast.success("Saved!")
-    } catch {
-      toast.error("Failed to save")
+    } catch (err) {
+      toast.error(err instanceof Error && err.message ? err.message : "Failed to save", {
+        duration: 10000,
+      })
     } finally {
       setSaving(false)
     }
