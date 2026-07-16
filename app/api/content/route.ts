@@ -17,6 +17,12 @@ export async function PUT(request: Request) {
   if (!content.doctor || !content.clinics || !content.reviews) {
     return NextResponse.json({ error: "Invalid content structure" }, { status: 400 })
   }
-  await saveContent(content)
+  try {
+    await saveContent(content)
+  } catch (err) {
+    console.error("Failed to save content:", err)
+    const message = err instanceof Error ? err.message : "Unknown error while saving"
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
   return NextResponse.json({ success: true })
 }

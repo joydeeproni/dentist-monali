@@ -7,7 +7,7 @@ const BLOB_PATH = "site-content.json"
 
 // On Vercel the filesystem is read-only, so writes go to Vercel Blob.
 // Locally (no token) we read/write the bundled JSON file instead.
-const useBlob = !!process.env.BLOB_READ_WRITE_TOKEN
+const useBlob = () => !!process.env.BLOB_READ_WRITE_TOKEN
 
 export interface SiteContent {
   doctor: {
@@ -59,13 +59,16 @@ function getDefaultContent(): SiteContent {
 }
 
 export async function getContent(): Promise<SiteContent> {
-  if (!useBlob) return getDefaultContent()
+  if (!useBlob()) return getDefaultContent()
 
   try {
     const { blobs } = await list({ prefix: BLOB_PATH })
     const match = blobs.find((b) => b.pathname === BLOB_PATH)
     if (!match) return getDefaultContent()
-    const res = await fetch(match.url, { cache: "no-store" })
+    // Blob responses sit behind Vercel's edge cache (min 60s), so bust it
+    // with the upload timestamp to always read the latest saved version.
+    const url = `${match.url}?v=${new Date(match.uploadedAt).getTime()}`
+    const res = await fetch(url, { cache: "no-store" })
     if (!res.ok) return getDefaultContent()
     return (await res.json()) as SiteContent
   } catch {
@@ -75,7 +78,15 @@ export async function getContent(): Promise<SiteContent> {
 }
 
 export async function saveContent(content: SiteContent): Promise<void> {
-  if (!useBlob) {
+  if (!useBlob()) {
+    if (process.env.VERCEL) {
+      // Read-only filesystem on Vercel — a write would fail anyway, so give
+      // the admin a clear reason instead of a generic 500.
+      throw new Error(
+        "Vercel Blob is not connected: BLOB_READ_WRITE_TOKEN is missing. " +
+          "In the Vercel dashboard go to Storage → Create Blob store → connect it to this project, then redeploy."
+      )
+    }
     writeFileSync(DATA_PATH, JSON.stringify(content, null, 2))
     return
   }
@@ -85,6 +96,8 @@ export async function saveContent(content: SiteContent): Promise<void> {
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
-    cacheControlMaxAge: 0,
+    // 60s is the minimum the Blob API accepts — lower values are rejected,
+    // which made every save fail. getContent busts this cache on read.
+    cacheControlMaxAge: 60,
   })
 }
